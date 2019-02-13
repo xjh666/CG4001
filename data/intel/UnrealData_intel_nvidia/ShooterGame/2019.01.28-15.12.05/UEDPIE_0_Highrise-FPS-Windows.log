@@ -1,0 +1,66 @@
+--- Begin : FPS chart dump for level 'UEDPIE_0_Highrise'
+Dumping FPS chart at 2019.01.28-15.13.29 using build ++UE4+Release-4.19-CL-4033788 in config Development built from changelist 4033788
+Machine info:
+	OS: Windows 10 
+	CPU: GenuineIntel Intel(R) Core(TM) i7-8700K CPU @ 3.70GHz
+	GPU: NVIDIA GeForce GTX 1080 Ti
+	Resolution Quality: 100.00
+	View Distance Quality: 3
+	Anti-Aliasing Quality: 3
+	Shadow Quality: 3
+	Post-Process Quality: 3
+	Texture Quality: 3
+	Effects Quality: 3
+	Foliage Quality: 3
+7456 frames collected over 84.18 seconds, disregarding 0.00 seconds for a 88.57 FPS average
+Average GPU frametime: 11.29 ms
+BoundGameThreadPct: 0.00
+BoundRenderThreadPct: 0.00
+BoundGPUPct: 0.00
+ExcludeIdleTime: 0
+Bucket: 0.0 - 5.0  Time:  0.00  Frame:  0.00
+Bucket: 5.0 - 10.0  Time:  0.00  Frame:  0.00
+Bucket: 10.0 - 15.0  Time:  0.00  Frame:  0.00
+Bucket: 15.0 - 20.0  Time:  0.00  Frame:  0.00
+Bucket: 20.0 - 25.0  Time:  0.00  Frame:  0.00
+Bucket: 25.0 - 30.0  Time:  0.00  Frame:  0.00
+Bucket: 30.0 - 40.0  Time:  0.04  Frame:  0.01
+Bucket: 40.0 - 50.0  Time:  0.00  Frame:  0.00
+Bucket: 50.0 - 60.0  Time:  0.06  Frame:  0.04
+Bucket: 60.0 - 70.0  Time:  1.83  Frame:  1.38
+Bucket: 70.0 - 80.0  Time:  3.57  Frame:  3.06
+Bucket: 80.0 - 90.0  Time: 50.04  Frame: 49.17
+Bucket: 90.0 - 100.0  Time: 44.42  Frame: 46.27
+Bucket: 100.0 - 110.0  Time:  0.00  Frame:  0.00
+Bucket: 110.0 - 120.0  Time:  0.04  Frame:  0.05
+Bucket: 120.0 - 340282346638528859811704183484516925440.0  Time:  0.01  Frame:  0.01
+  Target 30 FPS: 0.00 % syncs missed, 100.00 % of time spent > 30 FPS (100.00 % of frames)
+  Target 60 FPS: 0.00 % syncs missed, 99.90 % of time spent > 60 FPS (99.95 % of frames)
+  Target 120 FPS: 26.19 % syncs missed, 0.01 % of time spent > 120 FPS (0.01 % of frames)
+--- Begin : Hitch chart dump for level 'UEDPIE_0_Highrise'
+Bucket: 0.00s - 0.03s  Count: 0  Time: 0.00 s
+Bucket: 0.03s - 0.06s  Count: 0  Time: 0.00 s
+Bucket: 0.06s - 0.10s  Count: 0  Time: 0.00 s
+Bucket: 0.10s - 0.15s  Count: 0  Time: 0.00 s
+Bucket: 0.15s - 0.20s  Count: 0  Time: 0.00 s
+Bucket: 0.20s - 0.30s  Count: 0  Time: 0.00 s
+Bucket: 0.30s - 0.50s  Count: 0  Time: 0.00 s
+Bucket: 0.50s - 0.75s  Count: 0  Time: 0.00 s
+Bucket: 0.75s - 1.00s  Count: 0  Time: 0.00 s
+Bucket: 1.00s - 1.50s  Count: 0  Time: 0.00 s
+Bucket: 1.50s - 2.00s  Count: 0  Time: 0.00 s
+Bucket: 2.00s - 2.50s  Count: 0  Time: 0.00 s
+Bucket: 2.50s - 5.00s  Count: 0  Time: 0.00 s
+Bucket: 5.00s - inf  Count: 0  Time: 0.00 s
+Total hitch count:  0
+Hitch frames bound by game thread:  0  (0.0 percent)
+Hitch frames bound by render thread:  0  (0.0 percent)
+Hitch frames bound by GPU:  0  (0.0 percent)
+Hitches / min:  0.00
+Time spent in hitch buckets:  0.00 s
+Avg. hitch frame length:  0.00 s
+--- End
+
+
+
+

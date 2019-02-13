@@ -1,0 +1,66 @@
+--- Begin : FPS chart dump for level 'UEDPIE_0_DesertRallyRace'
+Dumping FPS chart at 2019.01.28-10.28.46 using build ++UE4+Release-4.19-CL-4033788 in config Development built from changelist 4033788
+Machine info:
+	OS: Windows 10 
+	CPU: AuthenticAMD AMD Ryzen 7 2700X Eight-Core Processor
+	GPU: Radeon RX Vega
+	Resolution Quality: 100.00
+	View Distance Quality: 3
+	Anti-Aliasing Quality: 3
+	Shadow Quality: 3
+	Post-Process Quality: 3
+	Texture Quality: 3
+	Effects Quality: 3
+	Foliage Quality: 3
+8508 frames collected over 124.74 seconds, disregarding 0.00 seconds for a 68.21 FPS average
+Average GPU frametime: 14.66 ms
+BoundGameThreadPct: 0.00
+BoundRenderThreadPct: 0.00
+BoundGPUPct: 0.00
+ExcludeIdleTime: 0
+Bucket: 0.0 - 5.0  Time:  0.00  Frame:  0.00
+Bucket: 5.0 - 10.0  Time:  0.00  Frame:  0.00
+Bucket: 10.0 - 15.0  Time:  0.00  Frame:  0.00
+Bucket: 15.0 - 20.0  Time:  0.00  Frame:  0.00
+Bucket: 20.0 - 25.0  Time:  0.00  Frame:  0.00
+Bucket: 25.0 - 30.0  Time:  0.03  Frame:  0.01
+Bucket: 30.0 - 40.0  Time:  1.47  Frame:  0.82
+Bucket: 40.0 - 50.0  Time:  9.14  Frame:  5.97
+Bucket: 50.0 - 60.0  Time:  4.93  Frame:  4.06
+Bucket: 60.0 - 70.0  Time: 13.50  Frame: 13.26
+Bucket: 70.0 - 80.0  Time: 70.90  Frame: 75.83
+Bucket: 80.0 - 90.0  Time:  0.01  Frame:  0.01
+Bucket: 90.0 - 100.0  Time:  0.00  Frame:  0.00
+Bucket: 100.0 - 110.0  Time:  0.00  Frame:  0.00
+Bucket: 110.0 - 120.0  Time:  0.02  Frame:  0.04
+Bucket: 120.0 - 340282346638528859811704183484516925440.0  Time:  0.00  Frame:  0.00
+  Target 30 FPS: 0.00 % syncs missed, 99.97 % of time spent > 30 FPS (99.99 % of frames)
+  Target 60 FPS: 0.00 % syncs missed, 84.43 % of time spent > 60 FPS (89.14 % of frames)
+  Target 120 FPS: 43.16 % syncs missed, 0.00 % of time spent > 120 FPS (0.00 % of frames)
+--- Begin : Hitch chart dump for level 'UEDPIE_0_DesertRallyRace'
+Bucket: 0.00s - 0.03s  Count: 0  Time: 0.00 s
+Bucket: 0.03s - 0.06s  Count: 0  Time: 0.00 s
+Bucket: 0.06s - 0.10s  Count: 0  Time: 0.00 s
+Bucket: 0.10s - 0.15s  Count: 0  Time: 0.00 s
+Bucket: 0.15s - 0.20s  Count: 0  Time: 0.00 s
+Bucket: 0.20s - 0.30s  Count: 0  Time: 0.00 s
+Bucket: 0.30s - 0.50s  Count: 0  Time: 0.00 s
+Bucket: 0.50s - 0.75s  Count: 0  Time: 0.00 s
+Bucket: 0.75s - 1.00s  Count: 0  Time: 0.00 s
+Bucket: 1.00s - 1.50s  Count: 0  Time: 0.00 s
+Bucket: 1.50s - 2.00s  Count: 0  Time: 0.00 s
+Bucket: 2.00s - 2.50s  Count: 0  Time: 0.00 s
+Bucket: 2.50s - 5.00s  Count: 0  Time: 0.00 s
+Bucket: 5.00s - inf  Count: 0  Time: 0.00 s
+Total hitch count:  0
+Hitch frames bound by game thread:  0  (0.0 percent)
+Hitch frames bound by render thread:  0  (0.0 percent)
+Hitch frames bound by GPU:  0  (0.0 percent)
+Hitches / min:  0.00
+Time spent in hitch buckets:  0.00 s
+Avg. hitch frame length:  0.00 s
+--- End
+
+
+
+
