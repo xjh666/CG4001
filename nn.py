@@ -1,9 +1,10 @@
 import torch
 import torch.nn as nn
+import os.path
 from sklearn import preprocessing
 from preprocess_data import split_feature_value_as_array
 
-def run_nn(training_set, test_set):
+def run_nn(training_set, test_set, model_name):
     training_feature = []
     training_value = []
     test_feature = []
@@ -20,11 +21,14 @@ def run_nn(training_set, test_set):
     y=torch.Tensor(scaler.fit_transform(training_value))
     test_feature = torch.Tensor(scaler.fit_transform(test_feature))
     test_value = torch.Tensor(scaler.fit_transform(test_value))
-
-    model = nn.Sequential(nn.Linear(n_in, n_h),
-                            nn.ReLU(),
-                            nn.Linear(n_h, n_out),
-                            nn.Sigmoid())
+    
+    if os.path.isfile(model_name):
+        model = torch.load(model_name)
+    else:
+        model = nn.Sequential(nn.Linear(n_in, n_h),
+                                nn.ReLU(),
+                                nn.Linear(n_h, n_out),
+                                nn.Sigmoid())
     criterion = torch.nn.MSELoss()
     optimizer = torch.optim.SGD(model.parameters(), lr=0.01)
 
@@ -54,3 +58,4 @@ def run_nn(training_set, test_set):
         # Update the parameters
         optimizer.step()
 
+    torch.save(model, model_name)
