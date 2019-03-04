@@ -12,4 +12,4 @@ y = dataset[1:,0:1].astype(float)
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 
 run_svr(X_train, X_test, y_train, y_test, file_name + '_svrmodel')
-print(run_nn(X_train, X_test, y_train, y_test, file_name + '_nnmodel'))
+# run_nn(X_train, X_test, y_train, y_test, file_name + '_nnmodel')
