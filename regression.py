@@ -1,13 +1,16 @@
 import numpy as np
+import pandas as pd
 from svr import run_svr
 from nn import run_nn
+from sklearn.model_selection import train_test_split
 from preprocess_data import process_dataset, split_feature_value_as_float_array
 
-data_file_path = "AMD_unity_frametime.csv"
-split_ratio = 0.8  #proportion of training sets
-training_set = []
-test_set = []
-process_dataset(data_file_path, split_ratio, training_set, test_set)
+file_name = 'intel_unity_frametime'
+dataframe = pd.read_csv(file_name + '.csv', header=None)
+dataset = dataframe.values
+X = dataset[1:,1:len(dataset[0])].astype(float)
+y = dataset[1:,0:1].astype(float)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 
-# run_svr(training_set, test_set)
-run_nn(training_set, test_set, 'AMD_unity_frametime_model')
+# # run_svr(X_train, X_test, y_train, y_test)
+run_nn(X_train, X_test, y_train, y_test, file_name + '_model')

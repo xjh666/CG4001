@@ -2,25 +2,17 @@ import torch
 import torch.nn as nn
 import os.path
 from sklearn import preprocessing
-from preprocess_data import split_feature_value_as_array
 
-def run_nn(training_set, test_set, model_name):
-    training_feature = []
-    training_value = []
-    test_feature = []
-    test_value = []
-    split_feature_value_as_array(training_set, training_feature, training_value)
-    split_feature_value_as_array(test_set, test_feature, test_value)
-
-    n_in = len(training_feature[0])
+def run_nn(X_train, X_test, y_train, y_test, model_name):
+    n_in = len(X_train[0])
     n_h = 10
     n_out = 1
 
     scaler = preprocessing.Normalizer()
-    x=torch.Tensor(scaler.fit_transform(training_feature))
-    y=torch.Tensor(scaler.fit_transform(training_value))
-    test_feature = torch.Tensor(scaler.fit_transform(test_feature))
-    test_value = torch.Tensor(scaler.fit_transform(test_value))
+    x=torch.Tensor(scaler.fit_transform(X_train))
+    y=torch.Tensor(scaler.fit_transform(y_train))
+    test_feature = torch.Tensor(scaler.fit_transform(X_test))
+    test_value = torch.Tensor(scaler.fit_transform(y_test))
     
     if os.path.isfile(model_name):
         model = torch.load(model_name)
