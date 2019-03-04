@@ -9,10 +9,10 @@ def run_nn(X_train, X_test, y_train, y_test, model_name):
     n_out = 1
 
     scaler = preprocessing.Normalizer()
-    x=torch.Tensor(scaler.fit_transform(X_train))
-    y=torch.Tensor(scaler.fit_transform(y_train))
-    test_feature = torch.Tensor(scaler.fit_transform(X_test))
-    test_value = torch.Tensor(scaler.fit_transform(y_test))
+    X_train=torch.Tensor(scaler.fit_transform(X_train))
+    y_train=torch.Tensor(scaler.fit_transform(y_train))
+    X_test = torch.Tensor(scaler.fit_transform(X_test))
+    y_test = torch.Tensor(scaler.fit_transform(y_test))
     
     if os.path.isfile(model_name):
         model = torch.load(model_name)
@@ -26,9 +26,9 @@ def run_nn(X_train, X_test, y_train, y_test, model_name):
 
     for epoch in range(1000):
         # Forward Propagation.
-        y_pred = model(x)
+        y_pred = model(X_train)
         # Compute and print loss.
-        loss = criterion(y_pred, y)
+        loss = criterion(y_pred, y_train)
         print('epoch: ', epoch,' loss: ', loss.item())
         # Zero the gradients.
         optimizer.zero_grad()
@@ -39,9 +39,9 @@ def run_nn(X_train, X_test, y_train, y_test, model_name):
 
     for epoch in range(500):
         # Forward Propagation.
-        y_pred = model(test_feature)
+        y_pred = model(X_test)
         # Compute and print loss.
-        loss = criterion(y_pred, test_value)
+        loss = criterion(y_pred, y_test)
         print ('epoch: ', epoch, ' loss: ', loss.item())
         # Zero the gradients.
         optimizer.zero_grad()
@@ -51,3 +51,4 @@ def run_nn(X_train, X_test, y_train, y_test, model_name):
         optimizer.step()
 
     torch.save(model, model_name)
+    return criterion(model(X_test), y_test)
