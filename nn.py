@@ -2,6 +2,7 @@ import torch
 import torch.nn as nn
 import os.path
 from sklearn import preprocessing
+import time
 
 def run_nn(X_train, X_test, y_train, y_test, model_name):
     n_in = len(X_train[0])
@@ -24,12 +25,16 @@ def run_nn(X_train, X_test, y_train, y_test, model_name):
     criterion = torch.nn.MSELoss()
     optimizer = torch.optim.SGD(model.parameters(), lr=0.01)
 
+    
+    timeUsed = time.time()
     for epoch in range(1000):
+        timeUsed = time.time()
         # Forward Propagation.
         y_pred = model(X_train)
         # Compute and print loss.
         loss = criterion(y_pred, y_train)
         print('epoch: ', epoch,' loss: ', loss.item())
+        print('time used: ', time.time()-timeUsed)
         # Zero the gradients.
         optimizer.zero_grad()
         # perform a backward pass (backpropagation)
@@ -37,12 +42,15 @@ def run_nn(X_train, X_test, y_train, y_test, model_name):
         # Update the parameters
         optimizer.step()
 
+
     for epoch in range(500):
+        timeUsed = time.time()
         # Forward Propagation.
         y_pred = model(X_test)
         # Compute and print loss.
         loss = criterion(y_pred, y_test)
         print ('epoch: ', epoch, ' loss: ', loss.item())
+        print('time used: ', time.time()-timeUsed)
         # Zero the gradients.
         optimizer.zero_grad()
         # perform a backward pass (backpropagation)
