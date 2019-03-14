@@ -1,62 +1,47 @@
-import torch
-import torch.nn as nn
-import os.path
-from sklearn import preprocessing
-import time
+from sklearn import linear_model
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import PolynomialFeatures
+from keras.models import Sequential, model_from_json
+from joblib import dump, load
+import numpy as np
 
-def run_nn(X_train, X_test, y_train, y_test, model_name):
-    n_in = len(X_train[0])
-    n_h = 10
-    n_out = 1
+def predict(X_test, y_test, model_name, test_file_name):
+    model = load(model_name + '_model.joblib')
+    prediction = model.predict(X_test)
+    predict = np.append(y_test, prediction, axis=1)
+    np.savetxt('result/' + model_name + '_' + test_file_name + '_11.csv', predict, delimiter=",")
 
-    scaler = preprocessing.Normalizer()
-    X_train=torch.Tensor(scaler.fit_transform(X_train))
-    y_train=torch.Tensor(scaler.fit_transform(y_train))
-    X_test = torch.Tensor(scaler.fit_transform(X_test))
-    y_test = torch.Tensor(scaler.fit_transform(y_test))
+def create_model(X_train, y_train, file_name):
+    # model = linear_model.LinearRegression()
+    # model.fit(X_train, y_train)
+    # prediction = model.predict(X_test)
+    # predict = numpy.append(y_test, prediction, axis=1)
     
-    if os.path.isfile(model_name):
-        model = torch.load(model_name)
-    else:
-        model = nn.Sequential(nn.Linear(n_in, n_h),
-                                nn.ReLU(),
-                                nn.Linear(n_h, n_out),
-                                nn.Sigmoid())
-    criterion = torch.nn.MSELoss()
-    optimizer = torch.optim.SGD(model.parameters(), lr=0.01)
+    # model = linear_model.Ridge(alpha=.5)
+    # model.fit(X_train, y_train)
+    # prediction = model.predict(X_test)
+    # predict = numpy.append(predict, prediction, axis=1)
 
+    # model = linear_model.RidgeCV(alphas=[0.1, 1.0, 10.0], cv=3)
+    # model.fit(X_train, y_train)
+    # prediction = model.predict(X_test)
+    # predict = numpy.append(predict, prediction, axis=1)
+
+    # model = linear_model.Lasso(alpha=0.1)
+    # model.fit(X_train, y_train)
+    # prediction = numpy.reshape(model.predict(X_test), (-1, 1))
+    # predict = numpy.append(predict, prediction, axis=1)
+
+    # model = linear_model.LassoLars(alpha=.1)
+    # model.fit(X_train, y_train)
+    # prediction = numpy.reshape(model.predict(X_test), (-1, 1))
+    # predict = numpy.append(predict, prediction, axis=1)
     
-    timeUsed = time.time()
-    for epoch in range(1000):
-        timeUsed = time.time()
-        # Forward Propagation.
-        y_pred = model(X_train)
-        # Compute and print loss.
-        loss = criterion(y_pred, y_train)
-        print('epoch: ', epoch,' loss: ', loss.item())
-        print('time used: ', time.time()-timeUsed)
-        # Zero the gradients.
-        optimizer.zero_grad()
-        # perform a backward pass (backpropagation)
-        loss.backward()
-        # Update the parameters
-        optimizer.step()
+    # model = linear_model.BayesianRidge()
+    # model.fit(X_train, y_train)
+    # prediction = numpy.reshape(model.predict(X_test), (-1, 1))
+    # predict = numpy.append(predict, prediction, axis=1)
 
-
-    for epoch in range(500):
-        timeUsed = time.time()
-        # Forward Propagation.
-        y_pred = model(X_test)
-        # Compute and print loss.
-        loss = criterion(y_pred, y_test)
-        print ('epoch: ', epoch, ' loss: ', loss.item())
-        print('time used: ', time.time()-timeUsed)
-        # Zero the gradients.
-        optimizer.zero_grad()
-        # perform a backward pass (backpropagation)
-        loss.backward()
-        # Update the parameters
-        optimizer.step()
-
-    torch.save(model, model_name)
-    return criterion(model(X_test), y_test)
+    model = Pipeline([('poly', PolynomialFeatures(degree=3)), ('linear', linear_model.LinearRegression(fit_intercept=False))])
+    model.fit(X_train, y_train)
+    dump(model, file_name + '_model.joblib')

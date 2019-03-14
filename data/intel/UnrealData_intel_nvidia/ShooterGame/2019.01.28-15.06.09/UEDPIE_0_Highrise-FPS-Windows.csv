@@ -3,9 +3,9 @@ Percentile,Frame (ms), GT (ms), RT (ms), GPU (ms),Context,,,,,,,,
 50,10.51,10.51,5.76,10.56,0,,,,,,,,
 75,10.68,10.7,6.19,10.85,0,,,,,,,,
 Time (sec),Frame (ms), GT (ms), RT (ms), GPU (ms),Context,DrawPrimitiveCalls,MeshDrawCalls,LastRendered,LightsInScene,ShadowedLight,UnshadowedLight,StaticMeshTriangles,Triangles
-0,8.33,6.26,5.34,10.01,0,not valid frame,not valid frame,0,not valid frame,not valid frame,not valid frame,not valid frame,not valid frame
-0.01,8.33,6.04,5.76,7.91,0,not valid frame,not valid frame,0,not valid frame,not valid frame,not valid frame,not valid frame,not valid frame
-0.02,8.34,5.89,5.33,7.72,0,not valid frame,not valid frame,0,not valid frame,not valid frame,not valid frame,not valid frame,not valid frame
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
 0.03,8.33,5.69,5.38,8.53,0,56288532,898,0,299,not valid frame,1,79639,1152
 0.03,10.29,6.44,5.38,8.53,0,56288532,954,230,299,not valid frame,1,79639,1222
 0.04,10.94,10.76,6.38,8.78,0,56288532,970,0,299,not valid frame,1,79639,1222
