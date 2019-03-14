@@ -4,7 +4,7 @@ from sklearn.model_selection import train_test_split
 from sklearn import preprocessing
 from keras_nn import run_ml
 
-file_name = 'unity_frametime'
+file_name = 'unity_rendertime'
 dataframe = pd.read_csv(file_name + '.csv', header=None, low_memory=False)
 dataset = dataframe.values
 X_train = dataset[1:,1:len(dataset[0])].astype(float)

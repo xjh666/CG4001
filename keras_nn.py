@@ -66,4 +66,4 @@ def run_ml(X_train, X_test, y_train, y_test, file_name, test_file_name):
     # if(os.path.isfile(model_name + '.json')):
     #     model = load_model(model_name)
     # save_model(model, model_name)
-    numpy.savetxt('/result/' + file_name + '_' + test_file_name, predict, delimiter=",")
+    numpy.savetxt('result/' + file_name + '_' + test_file_name, predict, delimiter=",")
