@@ -1,6 +1,6 @@
 import numpy as np
 import pandas as pd
-from nn import create_model
+from nn import create_model, predict
 from model import Model
 
 def get_dataset(file_path):
@@ -20,10 +20,11 @@ def test_predict():
     test_file_name = 'vehicle_5'
     X, y = get_dataset('test/' + model_name + '_' +test_file_name + '.csv')
 
-    model = Model(model_name + '_model.joblib')
-    prediction = model.predict(X_test)
-    predict = np.append(y_test, prediction, axis=1)
-    np.savetxt('result/' + model_name + '_' + test_file_name + '_11.csv', predict, delimiter=",")
-
+    # model = Model(model_name + '_model.joblib')
+    # prediction = model.predict(X_test)
+    # predict = np.append(y_test, prediction, axis=1)
+    # np.savetxt('result/' + model_name + '_' + test_file_name + '_11.csv', predict, delimiter=",")
+    predict(X, y, model_name, test_file_name)
+    
 build_model()
 test_predict()

@@ -5,11 +5,11 @@ from keras.models import Sequential, model_from_json
 from joblib import dump, load
 import numpy as np
 
-def predict(X_test, y_test, model_name, test_file_name):
+def predict(X, y, model_name, test_file_name):
     model = load(model_name + '_model.joblib')
-    prediction = model.predict(X_test)
-    predict = np.append(y_test, prediction, axis=1)
-    np.savetxt('result/' + model_name + '_' + test_file_name + '_11.csv', predict, delimiter=",")
+    prediction = model.predict(X)
+    predict = np.append(y, prediction, axis=1)
+    np.savetxt('result/' + model_name + '_' + test_file_name + '.csv', predict, delimiter=",")
 
 def create_model(X_train, y_train, file_name):
     # model = linear_model.LinearRegression()
