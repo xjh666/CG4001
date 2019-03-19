@@ -11,7 +11,7 @@ def get_dataset(file_path):
     return X, y
 
 def build_model():
-    file_name = 'unity_rendertime'
+    file_name = 'unreal_GPU'
     X, y = get_dataset(file_name + '.csv')
     create_model(X, y, file_name)
 
@@ -24,7 +24,7 @@ def test_predict():
     # prediction = model.predict(X_test)
     # predict = np.append(y_test, prediction, axis=1)
     # np.savetxt('result/' + model_name + '_' + test_file_name + '_11.csv', predict, delimiter=",")
-    predict(X, y, model_name, test_file_name)
+    # predict(X, y, model_name, test_file_name)
     
 build_model()
-test_predict()
+# test_predict()
