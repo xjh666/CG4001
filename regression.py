@@ -11,7 +11,7 @@ def get_dataset(file_path):
     return X, y
 
 def build_model():
-    file_name = 'unreal_GPU'
+    file_name = 'unreal_gamethread'
     X, y = get_dataset(file_name + '.csv')
     create_model(X, y, file_name)
 
