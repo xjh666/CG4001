@@ -1,6 +1,6 @@
 import numpy as np
 import pandas as pd
-from nn import create_model, predict
+from nn import create_model, predict, test_model
 from model import Model
 
 def get_dataset(file_path):
@@ -11,20 +11,25 @@ def get_dataset(file_path):
     return X, y
 
 def build_model():
-    file_name = 'unreal_gamethread'
+    file_name = 'unity_rendertime'
     X, y = get_dataset(file_name + '.csv')
     create_model(X, y, file_name)
 
 def test_predict():
     model_name = 'unity_rendertime'
-    test_file_name = 'vehicle_5'
+    test_file_name = 'effect_1'
     X, y = get_dataset('test/' + model_name + '_' +test_file_name + '.csv')
-
-    # model = Model(model_name + '_model.joblib')
-    # prediction = model.predict(X_test)
-    # predict = np.append(y_test, prediction, axis=1)
-    # np.savetxt('result/' + model_name + '_' + test_file_name + '_11.csv', predict, delimiter=",")
+    model = Model(model_name + '_model.joblib')
+    prediction = model.predict(X)
+    predict = np.append(y, prediction, axis=1)
+    np.savetxt('result/' + model_name + '_' + test_file_name + '.csv', predict, delimiter=",")
     # predict(X, y, model_name, test_file_name)
     
-build_model()
+# build_model()
 # test_predict()
+
+file_name = 'unity_rendertime'
+test_file_name = 'effect_1'
+X_train, y_train = get_dataset(file_name + '.csv')
+X_test, y_test = X, y = get_dataset('test/' + file_name + '_' +test_file_name + '.csv')
+test_model(X_train, y_train, X_test, y_test)
