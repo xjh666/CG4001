@@ -11,7 +11,7 @@ def get_dataset(file_path):
     return X, y
 
 def build_model():
-    file_name = 'unity_rendertime'
+    file_name = 'unreal_GPU'
     X, y = get_dataset(file_name + '.csv')
     create_model(X, y, file_name)
 
@@ -28,8 +28,8 @@ def test_predict():
 # build_model()
 # test_predict()
 
-file_name = 'unity_rendertime'
+file_name = 'unity_frametime'
 test_file_name = 'effect_1'
 X_train, y_train = get_dataset(file_name + '.csv')
-X_test, y_test = X, y = get_dataset('test/' + file_name + '_' +test_file_name + '.csv')
+X_test, y_test = get_dataset('test/' + file_name + '_' +test_file_name + '.csv')
 test_model(X_train, y_train, X_test, y_test)
